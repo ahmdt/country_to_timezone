@@ -1,7 +1,8 @@
 name: country_to_timezone
 description: "Converts a ISO 3166-1 alpha-2 code to a timezone. (e.g. 'DE' to 'Europe/Berlin')"
 version: 0.1.0
-homepage:
+repository: https://github.com/ahmdt/country_to_timezone
+
 
 environment:
   sdk: ^3.9.2
