@@ -1,6 +1,16 @@
 import 'package:collection/collection.dart';
 
+/// A utility class for converting country codes to their corresponding timezones.
 class CountryToTimezone {
+  /// Converts a given country code to its corresponding timezone.
+  ///
+  /// Takes a [countryCode] as input, converts it to uppercase, and searches
+  /// through the predefined [timezones] map to find matching entries.
+  /// The results are sorted to prioritize entries without aliases and then
+  /// by the position of the country code in the list of countries associated
+  /// with each timezone.
+  ///
+  /// Returns the timezone string if found, or null if no matching timezone exists.
   static String? convert(String countryCode) {
     countryCode = countryCode.toUpperCase();
 
@@ -25,6 +35,14 @@ class CountryToTimezone {
     return sortedItems.firstOrNull?.key;
   }
 
+  /// A static map containing timezone data.
+  ///
+  /// Each entry maps a timezone string to a value that includes:
+  /// - 'u': UTC offset in minutes (optional)
+  /// - 'd': Daylight saving time offset in minutes (optional)
+  /// - 'c': A list of country codes associated with the timezone
+  /// - 'a': An alias for another timezone (optional)
+  /// - 'r': A flag indicating if the timezone is a reference timezone (optional)
   static final timezones = {
     "Africa/Abidjan": {
       'u': 0,
